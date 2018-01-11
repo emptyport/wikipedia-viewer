@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import '../assets/Search.css';
 
 class Search extends Component {
   constructor(props) {
@@ -13,7 +14,8 @@ class Search extends Component {
     this.updateQuery = this.updateQuery.bind(this);
   }
 
-  searchWikipedia() {
+  searchWikipedia(event) {
+    event.preventDefault();
     var self = this;
     var url = "http://en.wikipedia.org/w/api.php";
     axios.get(url, {
@@ -26,24 +28,27 @@ class Search extends Component {
       }
     })
     .then(function(response) {
-      console.log(response);
+      self.props.getSearchResultCallback(response);
     });
   }
 
-  updateQuery(evt) {
+  updateQuery(event) {
     this.setState({
-      query: evt.target.value
+      query: event.target.value
     });
   }
 
   render() {
     return (
       <div className="Search">
-        <input value={this.state.query} onChange={this.updateQuery}/>
-        <button onClick={this.searchWikipedia}>Search</button>
+        <form onSubmit={this.searchWikipedia}>
+          <input placeholder='Search Wikipedia' value={this.state.query} onChange={this.updateQuery}/>
+          <button type='submit' id='search_button'>Search</button>
+        </form>
       </div>
     );
   }
 }
 
 export default Search;
+

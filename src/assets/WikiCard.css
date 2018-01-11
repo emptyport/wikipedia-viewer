@@ -1,0 +1,28 @@
+.WikiCard {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  border-color: black;
+
+  margin: 2.5% 10% 2.5% 10%;
+
+  cursor: pointer;
+}
+
+.WikiCard:hover {
+  transform: scale(0.95);
+  transition: all .2s ease-in-out;
+}
+
+h2 {
+  font-size: 14px;
+}
+
+p {
+  font-size: 12px;
+  margin: 5px;
+}
+
+.searchmatch {
+  font-weight: bold;
+}
