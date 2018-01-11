@@ -15,7 +15,7 @@ class Results extends Component {
       <div className="Results">
         {
           this.props.resultsList.map((result) => (
-            <WikiCard title={result.title} snippet={result.snippet} pageID={result.pageid} clickCallback={this.props.setActiveArticleCallback} key={result.pageid}/>
+            <WikiCard title={result.title} snippet={result.snippet} key={result.pageid}/>
           ))
         }
       </div>

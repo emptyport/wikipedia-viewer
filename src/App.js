@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Search from './components/Search';
 import Results from './components/Results';
-import WikiArticle from './components/WikiArticle';
 
 class App extends Component {
   constructor(props) {
@@ -23,23 +22,13 @@ class App extends Component {
     });
   }
 
-  setActiveArticle = (pageID) => {
-    this.setState({
-      activeArticle: pageID
-    });
-  }
-
   render() {
     return (
       <div className="App">
         <Search getSearchResultCallback={this.getSearchResults} />
         {
           this.state.activeArticle == null &&
-          <Results resultsList={this.state.searchResults}  setActiveArticleCallback={this.setActiveArticle}/>
-        }
-        {
-          this.state.activeArticle != null &&
-          <WikiArticle pageid={this.state.activeArticle} />
+          <Results resultsList={this.state.searchResults} />
         }
       </div>
     );
