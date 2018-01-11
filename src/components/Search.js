@@ -17,7 +17,7 @@ class Search extends Component {
   searchWikipedia(event) {
     event.preventDefault();
     var self = this;
-    var url = "http://en.wikipedia.org/w/api.php";
+    var url = "https://en.wikipedia.org/w/api.php";
     axios.get(url, {
       params: {
         action: 'query',
