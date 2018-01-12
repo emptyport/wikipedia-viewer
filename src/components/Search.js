@@ -12,6 +12,7 @@ class Search extends Component {
 
     this.searchWikipedia = this.searchWikipedia.bind(this);
     this.updateQuery = this.updateQuery.bind(this);
+    this.openRandomArticle = this.openRandomArticle.bind(this);
   }
 
   searchWikipedia(event) {
@@ -32,6 +33,11 @@ class Search extends Component {
     });
   }
 
+  openRandomArticle() {
+    var url = "https://en.wikipedia.org/wiki/Special:Random";
+    window.open(url, '_blank');
+  }
+
   updateQuery(event) {
     this.setState({
       query: event.target.value
@@ -44,6 +50,7 @@ class Search extends Component {
         <form onSubmit={this.searchWikipedia}>
           <input placeholder='Search Wikipedia' value={this.state.query} onChange={this.updateQuery}/>
           <button type='submit' id='search_button'>Search</button>
+          <button onClick={this.openRandomArticle}>Random</button>
         </form>
       </div>
     );
